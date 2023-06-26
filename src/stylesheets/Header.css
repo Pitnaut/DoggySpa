@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  margin-top: .5rem;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 90%;
+}
+
+.header .logo {
+  background-color: #e0cec5;
+  height: 1.5rem;
+  
+}
+
+.header .navigator {
+  display: flex;
+  font-size: 1rem;
+  list-style: none;
+  gap: 5%;
+  white-space: nowrap;
+  font-family: 'Annie Use Your Telescope';
+  font-weight: bold;
+}
