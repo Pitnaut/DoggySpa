@@ -1,22 +1,27 @@
 import React, { useState } from 'react'
 
+const sizes = ["Small", "Medium", "Big", "Very Big"]
+
 const Form = () => {
 
-	const [names, setnames] =useState({
+	const [names, setnames] = useState({
 		name: '',
 		petName: ''
-	})
+	});
 
-	const handleInputChange = (event) => {
+	const [selectedSize, setSelectedSize] = useState(sizes[0]);
+
+
+	const handleInputChange = (e) => {
 		setnames({
 			...names,
-			[event.target.value] : event.target.value
+			[e.target.value] : e.target.value
 		})
 	};
 
-	const sendData = (event) => {
-		event.preventDefault();
-	}
+	const sendData = (e) => {
+		e.preventDefault();
+	};
 
   return (
 		<div className="allform">
@@ -39,11 +44,14 @@ const Form = () => {
 				</section>
 				<section className="dogsize">
 					<label htmlFor="size">What is the size of your pet?</label>
-					<select id="size" name="size">
-						<option value="small">Small (less than 5kg.)</option>
-						<option value="medium">Medium (between 5kg. and 15kg. )</option>
-						<option value="big">Big (between 15kg. and 25kg.) </option>
-						<option value="very big">Very big (more than 25kg.)</option>
+					<select value={selectedSize} onChange={e => setSelectedSize(e.target.value)}>
+						{sizes.map((size) => (
+							<option 
+								value={size} 
+								key={size}>
+									{size}
+							</option>
+						))}
 					</select>
 				</section>
 				<section className="washtype">
