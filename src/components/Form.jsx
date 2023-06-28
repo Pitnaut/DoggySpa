@@ -1,23 +1,28 @@
 import React, { useState } from 'react'
 
-const sizes = ["Small", "Medium", "Big", "Very Big"]
+const sizes = ["Small (less than 5kg)", "Medium between (5kg and 15kg)", "Big (between 15kg and 25kg)", "Very Big (more than 25kg)"]
 
 const Form = () => {
 
-	const [names, setnames] = useState({
-		name: '',
-		petName: ''
-	});
-
+	const [name, setName] = useState('')
+  const [dogName, setDogName] = useState('')
 	const [selectedSize, setSelectedSize] = useState(sizes[0]);
+  const [selectedBath, setSelectedBath] = useState('');
+  const [selectedExtra, setSelectedExtra] = useState([]);
+  const [comment, setComment] = useState('')
+
+  const handleCheck = (e) => {
+    const { value, checked } = e.target
+    if (checked) {
+      setSelectedExtra(pre => [...pre,value])
+    } else {
+      setSelectedExtra(pre => {
+        return [...pre.filter(extra => extra!==value)]
+      })
+    }
+  };
 
 
-	const handleInputChange = (e) => {
-		setnames({
-			...names,
-			[e.target.value] : e.target.value
-		})
-	};
 
 	const sendData = (e) => {
 		e.preventDefault();
@@ -35,12 +40,16 @@ const Form = () => {
 						name="name"
 						type="text" 
 						placeholder='your name'
-						onChange={handleInputChange} />
+						onChange={e => setName(e.target.value)}
+            value={name} 
+            />
 					<input 
 						name="petName"
 						type="text" 
 						placeholder='your pet name'
-						onChange={handleInputChange} />
+						onChange={e => setDogName(e.target.value)}
+            value={dogName}
+              />
 				</section>
 				<section className="dogsize">
 					<label htmlFor="size">What is the size of your pet?</label>
@@ -54,29 +63,74 @@ const Form = () => {
 						))}
 					</select>
 				</section>
-				<section className="washtype">
-					<span>Type of washing for your pet</span>
+				<section className="bathtype">
+					<span>Type of bath for your pet</span>
 					<br/>
-					<input id="standard" type="radio" name="wash" value="standard"/>
+					<input 
+            id="standard" 
+            type="radio" 
+            name="bath" 
+            value="standard"
+            checked={selectedBath === 'standard'}
+            onChange={e => setSelectedBath(e.target.value)} 
+            />
 					<label htmlFor="standard">Standard</label>
-					<input id="premium" type="radio" name="wash" value="premium"/>
+					<input 
+            id="premium" 
+            type="radio" 
+            name="bath" 
+            value="premium"
+            checked={selectedBath === 'premium'}
+            onChange={e => setSelectedBath(e.target.value)} 
+            />
 					<label htmlFor="premium">Premium</label>
+          <input 
+            id="deluxe" 
+            type="radio" 
+            name="bath" 
+            value="deluxe"
+            checked={selectedBath === 'deluxe'}
+            onChange={e => setSelectedBath(e.target.value)} 
+            />
+					<label htmlFor="premium">DeLuxe</label>
 				</section>
 				<section className="extras">
 					<span>Make your pet even prettier</span>
 					<br/>
-					<input id="ear" type="checkbox" name="extras" value="ear"/>
+					<input 
+            type="checkbox" 
+            name="extras" 
+            value="ear"
+            onChange={handleCheck}
+            />
 					<label htmlFor="ear">Ear cleaning</label>
-					<input id="pedicure" type="checkbox" name="extras" value="pedicure"/>
+					<input 
+            type="checkbox" 
+            name="extras" 
+            value="pedicure"
+            onChange={handleCheck}
+            />
 					<label htmlFor="pedicure">Pedicure</label>
-					<input id="haircut" type="checkbox" name="extras" value="haircut"/>
+					<input 
+            type="checkbox" 
+            name="extras" 
+            value="haircut"
+            onChange={handleCheck}
+            />
 					<label htmlFor="haircut">Haircut</label>
 				</section>
 				<section className="comments">
 					<label>Does your pet have any peculiarities? Let us know!</label>
 					<br/>
-					<textarea id="comments" name="coments" rows="4"
-					cols="40"></textarea>
+					<textarea 
+            placeholder="Add your comments here" 
+            name="coments" 
+            rows="4"
+            cols="40" 
+            value={comment}
+            onChange={e => setComment(e.target.value)}
+            >
+          </textarea>
 				</section>
 				<button type="submit" value="send">Send</button>
 			</form>
