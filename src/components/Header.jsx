@@ -5,11 +5,11 @@ const Header = () => {
   return (
     <div className='header'>
       <img className='logo' src={logo} alt='logo' />
-      <ul className='navigator'>
-        <li>Home</li>
-        <li>Appointments</li>
-        <li>Contact</li>
-      </ul>
+      <div className='navigator'>
+        <p>Home</p>
+        <p>Appointments</p>
+        <p>Contact</p>
+      </div>
     </div>
   )
 }

@@ -3,26 +3,22 @@
   margin-top: .5rem;
   justify-content: space-between;
   align-items: center;
-  max-width: 90%;
-}
-
-.header .logo {
-  background-color: #e0cec5;
-  height: 1.5rem;
-  
+  border-bottom: 2px solid #905108;
 }
 
 .header .navigator {
   display: flex;
   font-size: 1rem;
   list-style: none;
-  gap: 5%;
-  font-family: 'Annie Use Your Telescope';
+  gap: 3%;
+  font-family: 'rubik';
+  font-size: .9rem;
   font-weight: bold;
   color: #905108;
   cursor: pointer;
+  padding-right: 7%;
 }
 
-.header .navigator li:hover {
+.header .navigator p:hover {
   text-decoration: underline;
 }

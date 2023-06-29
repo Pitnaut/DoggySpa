@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import '../stylesheets/Form.css'
 
-const sizes = ["Small (less than 5kg)", "Medium between (5kg and 15kg)", "Big (between 15kg and 25kg)", "Very Big (more than 25kg)"]
+const sizes = ["S (less than 5kg)", "M (between 5kg and 15kg)", "L (between 15kg and 25kg)", "XL (more than 25kg)"]
 
 const Form = () => {
 
@@ -31,28 +32,31 @@ const Form = () => {
   return (
 		<div className="allform">
 			<div className="headlings">
-				<h1>Welcome to Shinny Paws!</h1>
 				<h2>Please complete this form to make your appointment </h2>
+        <hr/>
 			</div>
 			<form  onSubmit={sendData}>
 				<section className="inputs">
 					<input 
-						name="name"
+						className="name"
+            name="name"
 						type="text" 
-						placeholder='your name'
+						placeholder='Your name'
 						onChange={e => setName(e.target.value)}
             value={name} 
             />
 					<input 
-						name="petName"
+						className="petName"
+            name="petName"
 						type="text" 
-						placeholder='your pet name'
+						placeholder='Your pet name'
 						onChange={e => setDogName(e.target.value)}
             value={dogName}
               />
+          <hr/>
 				</section>
 				<section className="dogsize">
-					<label htmlFor="size">What is the size of your pet?</label>
+					<label htmlFor="size">Size of your pet?</label>
 					<select value={selectedSize} onChange={e => setSelectedSize(e.target.value)}>
 						{sizes.map((size) => (
 							<option 
@@ -62,65 +66,78 @@ const Form = () => {
 							</option>
 						))}
 					</select>
+          <hr/>
 				</section>
 				<section className="bathtype">
 					<span>Type of bath for your pet</span>
 					<br/>
-					<input 
-            id="standard" 
-            type="radio" 
-            name="bath" 
-            value="standard"
-            checked={selectedBath === 'standard'}
-            onChange={e => setSelectedBath(e.target.value)} 
-            />
-					<label htmlFor="standard">Standard</label>
-					<input 
-            id="premium" 
-            type="radio" 
-            name="bath" 
-            value="premium"
-            checked={selectedBath === 'premium'}
-            onChange={e => setSelectedBath(e.target.value)} 
-            />
-					<label htmlFor="premium">Premium</label>
-          <input 
-            id="deluxe" 
-            type="radio" 
-            name="bath" 
-            value="deluxe"
-            checked={selectedBath === 'deluxe'}
-            onChange={e => setSelectedBath(e.target.value)} 
-            />
-					<label htmlFor="premium">DeLuxe</label>
+          <div className="bathform">
+            <input 
+              className="standardbath"
+              id="standard" 
+              type="radio" 
+              name="bath" 
+              value="standard"
+              checked={selectedBath === 'standard'}
+              onChange={e => setSelectedBath(e.target.value)} 
+              />
+            <label htmlFor="standard">Standard</label>
+            <input 
+              className="premiumbath"
+              id="premium" 
+              type="radio" 
+              name="bath" 
+              value="premium"
+              checked={selectedBath === 'premium'}
+              onChange={e => setSelectedBath(e.target.value)} 
+              />
+            <label htmlFor="premium">Premium</label>
+            <input 
+              className="deluxebath"
+              id="deluxe" 
+              type="radio" 
+              name="bath" 
+              value="deluxe"
+              checked={selectedBath === 'deluxe'}
+              onChange={e => setSelectedBath(e.target.value)} 
+              />
+            <label htmlFor="deluxe">DeLuxe</label>
+          </div>
+          <hr/>
 				</section>
 				<section className="extras">
 					<span>Make your pet even prettier</span>
 					<br/>
-					<input 
-            type="checkbox" 
-            name="extras" 
-            value="ear"
-            onChange={handleCheck}
-            />
-					<label htmlFor="ear">Ear cleaning</label>
-					<input 
-            type="checkbox" 
-            name="extras" 
-            value="pedicure"
-            onChange={handleCheck}
-            />
-					<label htmlFor="pedicure">Pedicure</label>
-					<input 
-            type="checkbox" 
-            name="extras" 
-            value="haircut"
-            onChange={handleCheck}
-            />
-					<label htmlFor="haircut">Haircut</label>
+          <div className="checkboxform">
+            <input 
+              id="ear"
+              type="checkbox" 
+              name="extras" 
+              value="ear"
+              onChange={handleCheck}
+              />
+              <label htmlFor="ear">Ear cleaning</label>
+            <input 
+              id="pedicure"
+              type="checkbox" 
+              name="extras" 
+              value="pedicure"
+              onChange={handleCheck}
+              />
+            <label htmlFor="pedicure">Pedicure</label>
+            <input 
+              id="haircut"
+              type="checkbox" 
+              name="extras" 
+              value="haircut"
+              onChange={handleCheck}
+              />
+            <label htmlFor="haircut">Haircut</label>
+          </div>
+          <hr/>
 				</section>
 				<section className="comments">
-					<label>Does your pet have any peculiarities? Let us know!</label>
+					<label className="question">Does your pet have any peculiarities? Let us know!</label>
 					<br/>
 					<textarea 
             placeholder="Add your comments here" 
@@ -131,8 +148,11 @@ const Form = () => {
             onChange={e => setComment(e.target.value)}
             >
           </textarea>
+          <hr/>
 				</section>
+        <div className="send">
 				<button type="submit" value="send">Send</button>
+        </div>
 			</form>
 		</div>
 	)

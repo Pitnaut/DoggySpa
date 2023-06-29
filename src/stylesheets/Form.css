@@ -1,0 +1,217 @@
+*, *before, *after {
+  box-sizing: border-box;
+}
+
+.headlings h2 {
+  font-family: "rubik";
+  color:#905108;
+  text-align: center; 
+}
+
+hr {
+  width: 30%;
+  color:#905108;
+  margin-bottom: 7%;
+}
+
+input[type=text] {
+  background-color: #f4bc6c;
+  color: black;
+  font-family: "rubik";
+  font-size: 1.1rem;
+  width: 50%;
+  padding: 3%;
+  border-radius: 15px;
+  box-shadow: 0 0 5px 2px #905108;
+}
+
+input[type=text]:focus {
+  outline: none;
+}
+
+.inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.inputs .petName {
+  margin-top: 4%;
+  margin-bottom: 6%;
+}
+
+.dogsize {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.dogsize label {
+  font-family: "rubik";
+  font-size: 1.4rem;
+  color:#905108;
+  margin-bottom: 3%;
+}
+
+.dogsize select {
+  background-color: #f4bc6c;
+  color: black;
+  font-family: "rubik";
+  font-size: 1.1rem;
+  width: 58%;
+  padding: 3%;
+  border-radius: 15px;
+  box-shadow: 0 0 5px 2px #905108;
+  margin-bottom: 6%;
+  cursor: pointer;
+}
+
+option {
+  font-family: "rubik";
+}
+
+.bathtype {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bathtype span {
+  font-family: "rubik";
+  font-size: 1.4rem;
+  color:#905108;
+  margin-bottom: 3%;
+}
+
+.bathform {
+  margin-bottom: 5%;
+}
+
+.bathform label {
+  font-family: "rubik";
+  margin-left: 1rem;
+  cursor: pointer;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+
+input[type="radio"] + *::before {
+  content: "";
+  display: inline-block;
+  vertical-align: bottom;
+  width: 1rem;
+  height: 1rem;
+  margin-right: .3rem;
+  border-radius: 50%;
+  border-style: solid;
+  border-width: .1rem;
+  color:#905108;
+}
+
+input[type="radio"]:checked + *::before {
+  background: radial-gradient(#905108, #905108, transparent 50%, transparent);
+  border-color: #905108;
+}
+
+.extras {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .checkboxform {
+  margin-bottom: 5%;
+  display: flex;
+}
+
+.extras span {
+  font-family: "rubik";
+  font-size: 1.4rem;
+  color:#905108;
+  margin-bottom: 3%;
+}
+
+.extras label {
+  font-family: "rubik";
+  margin-right: 1rem; 
+}
+
+.extras input[type="checkbox"] {
+  display: none;
+}
+
+.extras input[type="checkbox"] + label{
+  cursor: pointer;
+}
+
+.extras input[type="checkbox"] + label:before{
+  cursor: pointer;
+  content: "";
+  width: 1rem;
+  height: 1rem;
+  border: .10rem solid #905108;
+  border-radius: 3px;
+  float: left;
+  margin-right: .5rem;
+}
+
+.extras input[type="checkbox"]:checked + label:before {
+  font-family: "Font Awesome 5 free";
+  content: "\f00c";
+  font-weight: 900;
+  font-size: 1rem;
+  color:#905108;
+}
+
+.comments {
+  font-family: "rubik";
+  font-size: 1.4rem;
+  color:#905108;
+  margin-bottom: 3%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.comments .question {
+  margin-left: 5%;
+  margin-right: 5%;
+}
+
+.comments textarea {
+  margin-top: 5%;
+  margin-bottom: 6%;
+  background-color: #f4bc6c;
+  color: black;
+  font-family: "rubik";
+  font-size: 1.1rem;
+  width: 60%;
+  padding: 3%;
+  border-radius: 15px;
+  box-shadow: 0 0 5px 2px #905108;
+}
+
+.comments textarea:focus {
+  outline:none;
+}
+
+.send {
+  text-align: center;
+  margin-bottom: 6%;
+}
+
+.send button {
+  width: 50%;
+  font-family: "rubik";
+  font-size: 2rem;
+  padding-top: 3%;
+  padding-bottom: 3%;
+  background-color: #f4bc6c;
+  color:#905108;
+  border-radius: 15px;
+  box-shadow: 0 0 5px 2px #905108;
+}
