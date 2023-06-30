@@ -1,7 +1,11 @@
-import React, { useState } from 'react'
-import '../stylesheets/Form.css'
+import React, { useState } from 'react';
+import '../stylesheets/Form.css';
+import DatePicker from 'react-date-picker';
+import 'react-calendar/dist/Calendar.css';
 
-const sizes = ["S (less than 5kg)", "M (between 5kg and 15kg)", "L (between 15kg and 25kg)", "XL (more than 25kg)"]
+
+const sizes = ["S (less than 5kg)", "M (between 5kg and 15kg)", "L (between 15kg and 25kg)", "XL (more than 25kg)"];
+const hours = ["9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00"];
 
 const Form = () => {
 
@@ -10,7 +14,9 @@ const Form = () => {
 	const [selectedSize, setSelectedSize] = useState(sizes[0]);
   const [selectedBath, setSelectedBath] = useState('');
   const [selectedExtra, setSelectedExtra] = useState([]);
-  const [comment, setComment] = useState('')
+  const [comment, setComment] = useState('');
+  const [value, onChange] = useState(new Date());
+  const [selectedHour, setSelectedHour] = useState(hours[0])
 
   const handleCheck = (e) => {
     const { value, checked } = e.target
@@ -150,6 +156,24 @@ const Form = () => {
           </textarea>
           <hr/>
 				</section>
+        <section className="calendarcontainer">
+          <span>Which day do you like to come?</span>
+          <DatePicker className ="react-date-picker" onChange={onChange} value={value} />
+          <hr/>
+        </section>
+        <section className="hourcontainer">
+          <label htmlFor="hour">What time is good for you?</label>
+          <select value={selectedHour} onChange={e => setSelectedHour(e.target.value)}>
+            {hours.map((hour) => (
+              <option
+                value={hour}
+                key={hour}>
+                {hour}
+              </option>
+            ))}
+          </select>
+          <hr/>
+        </section>  
         <div className="send">
 				<button type="submit" value="send">Send</button>
         </div>
