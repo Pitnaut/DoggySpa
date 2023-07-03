@@ -7,10 +7,10 @@ import 'react-calendar/dist/Calendar.css';
 const sizes = ["S (less than 5kg)", "M (between 5kg and 15kg)", "L (between 15kg and 25kg)", "XL (more than 25kg)"];
 const hours = ["9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00"];
 
-const Form = () => {
+const Form = ({ onSubmit }) => {
 
-	const [name, setName] = useState('')
-  const [dogName, setDogName] = useState('')
+	const [userName, setUserName] = useState('')
+  const [petName, setPetName] = useState('')
 	const [selectedSize, setSelectedSize] = useState(sizes[0]);
   const [selectedBath, setSelectedBath] = useState('');
   const [selectedExtra, setSelectedExtra] = useState([]);
@@ -29,10 +29,19 @@ const Form = () => {
     }
   };
 
-
-
-	const sendData = (e) => {
+  const sendData = (e) => {
 		e.preventDefault();
+    const formData = {
+      userName: userName,
+      petName: petName,
+      selectedSize: selectedSize,
+      selectedBath: selectedBath,
+      selectedExtra: selectedExtra,
+      comment: comment,
+      value: value,
+      selectedHour: selectedHour
+    };
+    onSubmit(formData)
 	};
 
   return (
@@ -44,20 +53,22 @@ const Form = () => {
 			<form  onSubmit={sendData}>
 				<section className="inputs">
 					<input 
-						className="name"
-            name="name"
+						autoComplete='off'
+            className="userName"
+            name="userName"
 						type="text" 
 						placeholder='Your name'
-						onChange={e => setName(e.target.value)}
-            value={name} 
+						onChange={e => setUserName(e.target.value)}
+            value={userName} 
             />
 					<input 
 						className="petName"
+            autoComplete='off'
             name="petName"
 						type="text" 
 						placeholder='Your pet name'
-						onChange={e => setDogName(e.target.value)}
-            value={dogName}
+						onChange={e => setPetName(e.target.value)}
+            value={petName}
               />
           <hr/>
 				</section>
@@ -175,7 +186,7 @@ const Form = () => {
           <hr/>
         </section>  
         <div className="send">
-				<button type="submit" value="send">Send</button>
+				<button type="submit" value="send">Set Appointment</button>
         </div>
 			</form>
 		</div>
