@@ -38,7 +38,7 @@ const Form = ({ onSubmit }) => {
       selectedBath: selectedBath,
       selectedExtra: selectedExtra,
       comment: comment,
-      value: value,
+      selectedDate: value,
       selectedHour: selectedHour
     };
     onSubmit(formData)
@@ -169,7 +169,7 @@ const Form = ({ onSubmit }) => {
 				</section>
         <section className="calendarcontainer">
           <span>Which day do you like to come?</span>
-          <DatePicker className ="react-date-picker" onChange={onChange} value={value} />
+          <DatePicker className ="react-date-picker" onChange={onChange} value={value} format="dd-MM-y" />
           <hr/>
         </section>
         <section className="hourcontainer">

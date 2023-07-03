@@ -208,7 +208,6 @@ input[type="radio"]:checked + *::before {
   margin-bottom: 5%;
   font-family: "rubik";
   font-size: 1.4rem;
-  color:#905108;
 }
 
 .calendarcontainer hr {

@@ -9,6 +9,7 @@ function App() {
   const [userData, setUserData] = useState({});
 
   const handleFormSubmit = formData => {
+
     setUserData({
       userName: formData.userName,
       petName: formData.petName,
@@ -16,12 +17,12 @@ function App() {
       selectedBath: formData.selectedBath,
       selectedExtra: formData.selectedExtra,
       comment: formData.comment,
-      value: formData.value,
+      selectedDate: formData.selectedDate,
       selectedHour: formData.selectedHour
     })
-  }
+  };
 
-
+  console.log(userData)
 
 
 
@@ -33,6 +34,7 @@ function App() {
       userName={userData.userName}
       petName={userData.petName}
       selectedHour={userData.selectedHour}
+      selectedDate={userData.selectedDate.toDateString()}
       />
     </div>
   )
