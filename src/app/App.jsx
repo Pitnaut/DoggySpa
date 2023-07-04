@@ -3,27 +3,34 @@ import '../stylesheets/App.css';
 import Header from '../components/Header'
 import Form from '../components/Form'
 import Ticket from '../components/Ticket'
+import { monthNames, toOrdinal, sizeReducer } from '../utilities/data'
 
 function App() {
 
-  const [userData, setUserData] = useState({});
+  const [userName, setUserName] = useState('');
+  const [petName, setPetName] = useState('');
+  const [hour, setHour] = useState('')
+  const [day, setDay] = useState('');
+  const [month, setMonth] = useState('');
+  const [size, setSize] = useState('');
+  const [bath, setBath] = useState('');
 
   const handleFormSubmit = formData => {
+    
+    const { selectedDate } = formData;
+    const selectedDay = selectedDate.getDate();
+    const selectedMonth = selectedDate.getMonth();
+    const selectedSize = formData.selectedSize;
 
-    setUserData({
-      userName: formData.userName,
-      petName: formData.petName,
-      selectedSize: formData.selectedSize,
-      selectedBath: formData.selectedBath,
-      selectedExtra: formData.selectedExtra,
-      comment: formData.comment,
-      selectedDate: formData.selectedDate,
-      selectedHour: formData.selectedHour
-    })
+
+    setUserName(formData.userName);
+    setPetName(formData.petName);
+    setHour(formData.selectedHour);
+    setDay(toOrdinal(selectedDay));
+    setMonth(monthNames[selectedMonth]);
+    setSize(sizeReducer(selectedSize))
+    setBath(formData.selectedBath)
   };
-
-  console.log(userData)
-
 
 
   return (
@@ -31,10 +38,13 @@ function App() {
       <Header />
       <Form onSubmit={handleFormSubmit} />
       <Ticket
-      userName={userData.userName}
-      petName={userData.petName}
-      selectedHour={userData.selectedHour}
-      selectedDate={userData.selectedDate.toDateString()}
+      userName={userName}
+      petName={petName}
+      selectedHour={hour}
+      day={day}
+      month={month}
+      size={size}
+      bath={bath}
       />
     </div>
   )

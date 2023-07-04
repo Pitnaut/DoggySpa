@@ -2,10 +2,8 @@ import React, { useState } from 'react';
 import '../stylesheets/Form.css';
 import DatePicker from 'react-date-picker';
 import 'react-calendar/dist/Calendar.css';
+import { sizes, hours } from '../utilities/data'
 
-
-const sizes = ["S (less than 5kg)", "M (between 5kg and 15kg)", "L (between 15kg and 25kg)", "XL (more than 25kg)"];
-const hours = ["9:00", "9:30", "10:00", "10:30", "11:00", "11:30", "12:00", "12:30", "13:00", "13:30", "14:00", "14:30", "15:00", "15:30", "16:00", "16:30", "17:00"];
 
 const Form = ({ onSubmit }) => {
 
@@ -91,34 +89,34 @@ const Form = ({ onSubmit }) => {
           <div className="bathform">
             <input 
               className="standardbath"
-              id="standard" 
+              id="Standard" 
               type="radio" 
               name="bath" 
-              value="standard"
-              checked={selectedBath === 'standard'}
+              value="Standard"
+              checked={selectedBath === 'Standard'}
               onChange={e => setSelectedBath(e.target.value)} 
               />
-            <label htmlFor="standard">Standard</label>
+            <label htmlFor="Standard">Standard</label>
             <input 
               className="premiumbath"
-              id="premium" 
+              id="Premium" 
               type="radio" 
               name="bath" 
-              value="premium"
-              checked={selectedBath === 'premium'}
+              value="Premium"
+              checked={selectedBath === 'Premium'}
               onChange={e => setSelectedBath(e.target.value)} 
               />
-            <label htmlFor="premium">Premium</label>
+            <label htmlFor="Premium">Premium</label>
             <input 
               className="deluxebath"
-              id="deluxe" 
+              id="Deluxe" 
               type="radio" 
               name="bath" 
-              value="deluxe"
-              checked={selectedBath === 'deluxe'}
+              value="Deluxe"
+              checked={selectedBath === 'Deluxe'}
               onChange={e => setSelectedBath(e.target.value)} 
               />
-            <label htmlFor="deluxe">DeLuxe</label>
+            <label htmlFor="Deluxe">DeLuxe</label>
           </div>
           <hr/>
 				</section>
