@@ -125,13 +125,13 @@ const Form = ({ onSubmit }) => {
 					<br/>
           <div className="checkboxform">
             <input 
-              id="ear"
+              id="ear cleaning"
               type="checkbox" 
               name="extras" 
-              value="ear"
+              value="ear cleaning"
               onChange={handleCheck}
               />
-              <label htmlFor="ear">Ear cleaning</label>
+              <label htmlFor="ear cleaning">Ear cleaning</label>
             <input 
               id="pedicure"
               type="checkbox" 
@@ -166,7 +166,7 @@ const Form = ({ onSubmit }) => {
           <hr/>
 				</section>
         <section className="calendarcontainer">
-          <span>Which day do you like to come?</span>
+          <span className="calendarquestion">Which day do you like to come?</span>
           <DatePicker className ="react-date-picker" onChange={onChange} value={value} format="dd-MM-y" />
           <hr/>
         </section>

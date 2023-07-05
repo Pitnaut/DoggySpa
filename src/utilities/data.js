@@ -30,7 +30,7 @@ const toOrdinal = (number) => {
   };
 };
 
-//function to convert size
+// Function to convert size
 const sizeReducer = (string) => {
   if (string === "S (less than 5kg)") {
     return "S";
@@ -43,4 +43,50 @@ const sizeReducer = (string) => {
   }
 };
 
-export {monthNames, sizes, hours, toOrdinal, sizeReducer};
+// Function to get prize from size options
+
+const calculateSizePrice = (size) => {
+  let sizePrice = 0;
+  if (size === "S") {
+    sizePrice = 5;
+  } else if (size === "M") {
+    sizePrice = 10;
+  } else if (size === "L") {
+    sizePrice = 15;
+  } else if (size === "XL") {
+    sizePrice = 20
+  }
+  return sizePrice
+};
+
+// Function to get price from bath options
+
+const calculateBathPrice = (bath) => {
+  let bathPrice = 0;
+  if (bath === "Standard") {
+    bathPrice = 10;
+  } else if (bath === "Premium") {
+    bathPrice = 15;
+  } else if (bath === "Deluxe") {
+    bathPrice = 20
+  }
+  return bathPrice
+};
+
+// Function to get price from extra options
+
+const calculateExtraPrice = (extras) => {
+  let extraPrice = 0;
+  extras.forEach((extra) => {
+    if(extra === "ear cleaning") {
+      extraPrice += 5;
+    } else if (extra === "pedicure") {
+      extraPrice += 10;
+    } else if (extra === "haircut") {
+      extraPrice += 20;
+    }
+  });
+  return extraPrice
+}
+
+export { monthNames, sizes, hours, toOrdinal, sizeReducer, calculateSizePrice, calculateBathPrice, calculateExtraPrice };
