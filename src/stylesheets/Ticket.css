@@ -1,0 +1,23 @@
+.ticketcontainer {
+	margin: 0 auto;
+	max-width: 25rem;
+	text-align: center;
+	border: 1px solid black;
+	display: flex;
+	flex-direction: column;
+	font-family: "Rubik";
+	border-radius: 40px;
+  box-shadow: 0 0 5px 2px #905108;
+	background-color: #f4bc6c;
+	margin-bottom: 5%;
+}
+
+.ticketcontainer .appointmentdate {
+	margin-left: 5%;
+	margin-right: 5%;
+}
+
+.ticketcontainer .appointmentdata {
+	margin-left: 5%;
+	margin-right: 5%;
+}

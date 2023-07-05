@@ -3,7 +3,6 @@ body {
   padding: 0;
   margin: 0 auto;
   background-color: #f4bc6c;
-  max-width: 100%;
   max-width: 30rem;
   display: flex;
   justify-content: center;

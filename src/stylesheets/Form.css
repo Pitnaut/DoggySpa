@@ -378,4 +378,5 @@ input[type="radio"]:checked + *::before {
   color:#905108;
   border-radius: 15px;
   box-shadow: 0 0 5px 2px #905108;
+  cursor: pointer;
 }
