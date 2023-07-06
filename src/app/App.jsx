@@ -20,6 +20,7 @@ function App() {
   const [bathPrice, setBathPrice] = useState(0);
   const [extraPrice, setExtraPrice] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
+  const [showTicket, setShowTicket] = useState(false)
 
   const handleFormSubmit = formData => {
 
@@ -37,7 +38,9 @@ function App() {
     setSize(sizeReducer(selectedSize));
     setBath(selectedBath);
     setExtras(selectedExtra)
+    setShowTicket(true)
   };
+
 
   useEffect(() => {
     const sizePrice = calculateSizePrice(size);
@@ -55,20 +58,22 @@ function App() {
     <div className='main'>
       <Header />
       <Form onSubmit={handleFormSubmit} />
-      <Ticket
-      userName={userName}
-      petName={petName}
-      selectedHour={hour}
-      day={day}
-      month={month}
-      size={size}
-      bath={bath}
-      extras={extras}
-      sizePrice={sizePrice}
-      bathPrice={bathPrice}
-      extraPrice={extraPrice}
-      totalPrice={totalPrice}
+      {showTicket && (
+        <Ticket
+        userName={userName}
+        petName={petName}
+        selectedHour={hour}
+        day={day}
+        month={month}
+        size={size}
+        bath={bath}
+        extras={extras}
+        sizePrice={sizePrice}
+        bathPrice={bathPrice}
+        extraPrice={extraPrice}
+        totalPrice={totalPrice}
       />
+      )}
     </div>
   )
 }
