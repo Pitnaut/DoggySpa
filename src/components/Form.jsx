@@ -51,13 +51,15 @@ const Form = ({ onSubmit }) => {
 			<form  onSubmit={sendData}>
 				<section className="inputs">
 					<input 
-						autoComplete='off'
             className="userName"
+            autoComplete='off'
             name="userName"
 						type="text" 
 						placeholder='Your name'
+            maxLength="20"
 						onChange={e => setUserName(e.target.value)}
-            value={userName} 
+            value={userName}
+            required
             />
 					<input 
 						className="petName"
@@ -65,8 +67,10 @@ const Form = ({ onSubmit }) => {
             name="petName"
 						type="text" 
 						placeholder='Your pet name'
+            maxLength="20"
 						onChange={e => setPetName(e.target.value)}
             value={petName}
+            required
               />
           <hr/>
 				</section>
@@ -94,7 +98,7 @@ const Form = ({ onSubmit }) => {
               name="bath" 
               value="Standard"
               checked={selectedBath === 'Standard'}
-              onChange={e => setSelectedBath(e.target.value)} 
+              onChange={e => setSelectedBath(e.target.value)}
               />
             <label htmlFor="Standard">Standard</label>
             <input 
