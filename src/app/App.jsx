@@ -20,12 +20,13 @@ function App() {
   const [bathPrice, setBathPrice] = useState(0);
   const [extraPrice, setExtraPrice] = useState(0);
   const [totalPrice, setTotalPrice] = useState(0);
-  const [showTicket, setShowTicket] = useState(false)
+  const [comment, setComment] = useState('');
+  const [showTicket, setShowTicket] = useState(false);
 
   const handleFormSubmit = formData => {
 
     
-    const { selectedDate, userName, petName, selectedHour, selectedSize, selectedBath, selectedExtra } = formData;
+    const { selectedDate, userName, petName, selectedHour, selectedSize, selectedBath, selectedExtra, comment } = formData;
     const selectedDay = selectedDate.getDate();
     const selectedMonth = selectedDate.getMonth();
     
@@ -37,8 +38,9 @@ function App() {
     setMonth(monthNames[selectedMonth]);
     setSize(sizeReducer(selectedSize));
     setBath(selectedBath);
-    setExtras(selectedExtra)
-    setShowTicket(true)
+    setExtras(selectedExtra);
+    setComment(comment)
+    setShowTicket(true);
   };
 
 
@@ -72,6 +74,7 @@ function App() {
         bathPrice={bathPrice}
         extraPrice={extraPrice}
         totalPrice={totalPrice}
+        comment={comment}
       />
       )}
     </div>

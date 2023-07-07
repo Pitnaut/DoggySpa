@@ -1,7 +1,7 @@
 import React from 'react';
 import '../stylesheets/Ticket.css';
 
-const Ticket = ({ userName, petName, selectedHour, day, month, size, bath, extras, sizePrice, bathPrice, extraPrice, totalPrice }) => {
+const Ticket = ({ userName, petName, selectedHour, day, month, size, bath, extras, sizePrice, bathPrice, extraPrice, totalPrice, comment }) => {
   return (
 		<div className="ticketcontainer">
 			<h3 className="appointmentdate">
@@ -11,6 +11,10 @@ const Ticket = ({ userName, petName, selectedHour, day, month, size, bath, extra
         <p>
           {petName} has a {size} size. You has selected a {bath} bath with the following extras: {extras.join(", ")}
         </p>
+      </div>
+      <div className="commentcontainer">
+        <p className="commentsintro">Comments:</p>       
+        <p className="comments-text">{comment}</p>
       </div>
       <div className="detail">
         <h3 className="sizedetail">

@@ -167,7 +167,7 @@ const Form = ({ onSubmit }) => {
 				</section>
         <section className="calendarcontainer">
           <span className="calendarquestion">Which day do you like to come?</span>
-          <DatePicker className ="react-date-picker" onChange={onChange} value={value} format="dd-MM-y" />
+          <DatePicker className ="react-date-picker" onChange={onChange} value={value} />
           <hr/>
         </section>
         <section className="hourcontainer">

@@ -1,8 +1,8 @@
 .ticketcontainer {
 	margin: 0 auto;
-	max-width: 25rem;
+	max-width: 20rem;
 	text-align: center;
-	border: 1px solid black;
+	border: 1px solid none;
 	display: flex;
 	flex-direction: column;
 	font-family: "Rubik";
@@ -20,4 +20,33 @@
 .ticketcontainer .appointmentdata {
 	margin-left: 5%;
 	margin-right: 5%;
+  font-size: 1.1rem;
 }
+
+.commentcontainer {
+  font-size: 1.1rem;
+  font-family: "rubik";
+  color:black;
+  margin-left: 5%;
+	margin-right: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: flex-start;
+  margin-left: 5%;
+	margin-right: 5%;
+}
+
+.commentcontainer .commentsintro {
+  font-size: 1.4rem;
+  margin-bottom: 0;
+}
+
+.commentcontainer .comments-text {
+  word-break: normal;
+  font-size: 1.1;
+  margin-top: .5rem;
+}
+
+
+
